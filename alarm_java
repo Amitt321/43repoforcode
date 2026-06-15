@@ -1,0 +1,21 @@
+import java.time.LocalTime;
+
+public class AlarmClock {
+    public static void main(String[] args) throws InterruptedException {
+
+        String alarmTime = "07:00:00"; // Set alarm time (HH:MM:SS)
+
+        System.out.println("Alarm set for " + alarmTime);
+
+        while (true) {
+            String currentTime = LocalTime.now().withNano(0).toString();
+
+            if (currentTime.equals(alarmTime)) {
+                System.out.println("⏰ Wake Up! Alarm Ringing!");
+                break;
+            }
+
+            Thread.sleep(1000); // Check every second
+        }
+    }
+}
